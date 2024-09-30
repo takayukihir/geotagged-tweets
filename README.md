@@ -18,4 +18,4 @@ For example:
 micromamba create -f environment.yml
 ```
 
-Each Jupyter notebook in `code` directory can be used for reproducing the results presented in the paper. To run them, download the dataset from Zenodo and create `original` directory. To run `code/make_figs4-7.ipynb`, unzip `code/ipaexg00401.zip`. 
+Each Jupyter notebook in `code` directory can be used for reproducing the results presented in the paper. To run them, download the dataset from [Zenodo](https://doi.org/10.5281/zenodo.13860969) and create `original` directory. To run `code/make_figs4-7.ipynb`, unzip `code/ipaexg00401.zip`. 
