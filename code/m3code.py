@@ -27,7 +27,7 @@ class m3code():
 		ycoor and xcoor are the grid coordinates 
 		'''
 		if len(code) != 8:
-			raise ValueError('m3code must be 8-digit string')
+			raise ValueError('m3code must be 8-digit string, but got {}'.format(code))
 		self.ycoor = code_to_grid_1d(int(code[0:2]), int(code[4]), int(code[6]))
 		self.xcoor = code_to_grid_1d(int(code[2:4]), int(code[5]), int(code[7]))
 
@@ -85,7 +85,7 @@ class m3code():
 		return m3code.from_grid(newy, newx)
 
 	def __sub__(self, deltayx):
-		return m3code + (- newy, - newx)
+		return m3code + (- deltayx[0], - deltayx[1])
 
 	# def lattice_neighborhood(self, dist):
 	# 	if dist < 0:
