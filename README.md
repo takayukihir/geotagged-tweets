@@ -6,10 +6,10 @@ This repository contains code used in the research presented in the following pa
 │
 ├── original/    # Original data
 │   ├── japan_MetropolitanEmploymentArea2015map/    # Shapefiles of metropolitan areas
-│   ├── ward_shapefiles/    # Shapefiles of wards
+│   └── ward_shapefiles/    # Shapefiles of wards
 ├── scratch/    # Derived data
 │   ├── preprocessed_mcntlt7_selected    # Tweet count data
-│   ├── population/    # Population data
+│   └── population/    # Population data
 ├── code/    # Source code and Jupyter notebooks for data analysis
 ├── figure/    # Figure folder
 ├── environment.yml    # Environment YAML file 
