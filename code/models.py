@@ -22,6 +22,17 @@ def core_periphery_model(distance, near_ratio, radius, exponent):
     return np.where(distance < radius, near_ratio, 
                     near_ratio / np.power(np.maximum(distance / radius, 1), exponent))
 
+def core_periphery_mle_std(num_target, num_all, dist, params):
+    q, r, a = params
+    p = core_periphery_model(dist, q, r, a)
+    dpdr = np.where(dist < r, 0, q * (a / r) * (dist / r)**(-a))
+    dpdrr = np.where(dist < r, 0, q * (a * (a - 1) / r**2) * (dist / r)**(-a))
+    dLdp = (num_target / p + (num_all - num_target) / (1 - p))
+    dLdpp = -(num_target / p**2 + (num_all - num_target) / (1 - p)**2)
+    dLdrr = dLdpp * dpdr**2 + dLdp * dpdrr
+    fisher_information = - np.sum(dLdrr)
+    return 1 / np.sqrt(fisher_information)
+
 # maximum likelihood estimation of the density dependent model
 def core_periphery_mle(num_target, num_all, dist):
     def negative_log_likelihood(params, data, num_all, dist):
